@@ -28,6 +28,7 @@ class Application
 
       if exists?(potential_item)
         add_to_cart(potential_item)
+        resp.write "added #{potential_item}"
       else
         return_error(resp, "We don't sell that")
       end
