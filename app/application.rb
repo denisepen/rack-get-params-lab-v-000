@@ -25,10 +25,10 @@ class Application
       if exists?(potential_item)
         add_to_cart(potential_item)
       else
-        return_error("We don't sell that")
+        return_error(resp, "We don't sell that")
       end
     else
-      return_error("path not found")
+      return_error(resp, "path not found")
     end
 
     resp.finish
@@ -38,8 +38,8 @@ class Application
     @@cart << item
   end
 
-  def return_error(message)
-    resp.write "#{message}"
+  def return_error(response, message)
+    response.write "#{message}"
   end
 
   def exists?(item)
