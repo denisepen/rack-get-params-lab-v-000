@@ -26,6 +26,7 @@ class Application
         @@cart << potential_item
       else
         resp.write "Error"
+      end
     else
       resp.write "Path Not Found"
     end
