@@ -25,10 +25,10 @@ class Application
       if exists?(potential_item)
         add_to_cart(potential_item)
       else
-        resp.write "Error"
+        return_error("We don't sell that")
       end
     else
-      resp.write "Path Not Found"
+      return_error("path not found")
     end
 
     resp.finish
@@ -37,7 +37,11 @@ class Application
   def add_to_cart(item)
     @@cart << item
   end
-  
+
+  def return_error(message)
+    resp.write message
+  end
+
   def exists?(item)
     if @@items.include?(item)
       true
