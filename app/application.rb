@@ -23,7 +23,7 @@ class Application
       potential_item = req.params["item"]
 
       if exists?(potential_item)
-        @@cart << potential_item
+        
       else
         resp.write "Error"
       end
@@ -34,6 +34,10 @@ class Application
     resp.finish
   end
 
+  def add_to_cart(item)
+    @@cart << item
+
+  end
   def exists?(item)
     if @@items.include?(item)
       true
