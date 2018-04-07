@@ -39,7 +39,7 @@ class Application
   end
 
   def return_error(message)
-    resp.write message
+    resp.write "#{message}"
   end
 
   def exists?(item)
